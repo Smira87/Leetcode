@@ -21,9 +21,6 @@ class WordDictionary(object):
         for m in self.set:
             if len(word) != len(m):
                 continue
-            if "." in word:
-                print(word.index("."))
-
             counter = 0
             for n in range(len(word)):
                 if word[n] == "." or word[n] == m[n]:
