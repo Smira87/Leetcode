@@ -16,15 +16,16 @@ class WordDictionary(object):
         :rtype: bool
         """
         if word in self.set:
-                return True
+            return True
 
         for m in self.set:
             if len(word) != len(m):
-                break
+                continue
             counter = 0
             for n in range(len(word)):
-                if word[n] == m[n] or word[n] == '.':
+                if word[n] == "." or word[n] == m[n]:
                     counter += 1
+                    print(counter)
                 if counter == len(word):
                     return True
 
@@ -35,10 +36,9 @@ class WordDictionary(object):
 # Your WordDictionary object will be instantiated and called as such:
 obj = WordDictionary()
 
-obj.addWord("word")
-obj.addWord("lala")
-obj.addWord("word")
+obj.addWord("a")
+obj.addWord("ab")
 
 
-param_2 = obj.search("w..d")
+param_2 = obj.search("..")
 print(param_2)
