@@ -21,11 +21,15 @@ class WordDictionary(object):
         for m in self.set:
             if len(word) != len(m):
                 continue
+            if "." in word:
+                print(word.index("."))
+
             counter = 0
             for n in range(len(word)):
                 if word[n] == "." or word[n] == m[n]:
                     counter += 1
-                    print(counter)
+                else:
+                    break
                 if counter == len(word):
                     return True
 
@@ -37,8 +41,8 @@ class WordDictionary(object):
 obj = WordDictionary()
 
 obj.addWord("a")
-obj.addWord("ab")
+obj.addWord("aab")
 
 
-param_2 = obj.search("..")
+param_2 = obj.search(".a.")
 print(param_2)
