@@ -1,45 +1,72 @@
 class WordDictionary(object):
 
+
     def __init__(self):
-        self.set = set()
+
+        self.root = TrieNode("")
 
     def addWord(self, word):
         """
         :type word: str
         :rtype: None
         """
-        self.set.add(word)
+        node = self.root
+
+        for char in word:
+
+            if char in node.children:
+                node = node.children[char]
+            else:
+                new_node = TrieNode(char)
+                node.children[char] = new_node
+                node = new_node
+
+        node.is_end = True
+    def dfs(self, word, node):
+
+        for i in range(0, len(word)):
+            if word[i] in node.children:
+                node = node.children[word[i]]
+            elif word[i] == ".":
+                for child in node.children.values():
+                    if self.dfs(word[i + 1:], child):
+                        return True
+                return False
+            else:
+                return False
+
+
+        if node.is_end:
+            return True
+        else:
+
+            return False
 
     def search(self, word):
         """
         :type word: str
         :rtype: bool
         """
-        if word in self.set:
-            return True
+        return self.dfs(word, self.root)
 
-        for m in self.set:
-            if len(word) != len(m):
-                continue
-            counter = 0
-            for n in range(len(word)):
-                if word[n] == "." or word[n] == m[n]:
-                    counter += 1
-                else:
-                    break
-                if counter == len(word):
-                    return True
+class TrieNode:
 
-        return False
+    def __init__(self, char) :
 
+        self.char = char
+
+        self.is_end = False
+
+        self.children = {}
 
 
 # Your WordDictionary object will be instantiated and called as such:
 obj = WordDictionary()
 
-obj.addWord("a")
-obj.addWord("aab")
+obj.addWord("mad")
+#obj.addWord("aab")
 
 
-param_2 = obj.search(".a.")
+param_2 = obj.search("m..")
+
 print(param_2)
