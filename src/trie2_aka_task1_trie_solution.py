@@ -37,10 +37,10 @@ class Trie(object) :
             elif word[i] == ".":
                 for child in node.children.values():
                     if self.dfs(word[i+1:], child):
-                        print(word[i+1:])
+
                         return True
                     else:
-                        print(word[i+1:])
+
                         continue
                 return False
             else:
@@ -62,6 +62,6 @@ tr.insert("hello")
 tr.insert("how ")
 tr.insert("her")
 
-print(tr.search(".el..o"))
+print(tr.search("h.r"))
 
 
