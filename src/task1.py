@@ -39,7 +39,6 @@ class WordDictionary(object):
         if node.is_end:
             return True
         else:
-
             return False
 
     def search(self, word):
