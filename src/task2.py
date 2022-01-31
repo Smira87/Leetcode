@@ -5,21 +5,15 @@ class Solution(object):
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        if len(nums) < k:
-            for i in range(k):
-                last_element = nums.pop()
-                nums.insert(0, last_element)
-        else:
-            aux_array1 = nums[-k:]
-            aux_array2 = nums[:-k]
+        k = k % len(nums)
 
-            nums[:] = aux_array1 + aux_array2
+        nums[:] = nums[-k:] + nums[:-k]
 
 
 
 sol = Solution()
 nums = [1, 2, 3, 4, 5, 6, 7]
-sol.rotate(nums, 3)
+sol.rotate(nums, 5)
 #sol.rotate_one_by_one()
 print(nums)
 
