@@ -4,12 +4,8 @@ class Solution(object):
         :type accounts: List[List[int]]
         :rtype: int
         """
-        max_value = None
+        return max(sum(i) for i in accounts)
 
-        for item in accounts:
-            if max_value == None or sum(item) > max_value:
-                max_value = sum(item)
-        return max_value
 
 
 sol = Solution()
