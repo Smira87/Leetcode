@@ -4,10 +4,10 @@ class Solution(object):
         :type accounts: List[List[int]]
         :rtype: int
         """
-        max_value = 0
+        max_value = None
 
         for item in accounts:
-            if max_value == 0 or sum(item) > max_value:
+            if max_value == None or sum(item) > max_value:
                 max_value = sum(item)
         return max_value
 
