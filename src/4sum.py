@@ -9,7 +9,6 @@ class Solution(object):
                 ht[n1 + n2] += 1
 
         ans = 0
-        c=0
         for n3 in nums3:
             for n4 in nums4:
                 ans += ht[-n3 - n4]
