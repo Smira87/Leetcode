@@ -1,25 +1,25 @@
 class Solution:
-	def findMaxLength(self, nums):
+    def findMaxLength(self, nums):
 
-			count=0
-			max_len=0
+            count=0
+            max_len=0
 
-			d={}
-			d[0]=-1
+            d={}
+            d[0]=-1
 
+            for i in range(len(nums)):
 
-			for i in range(len(nums)):
+                if nums[i]==1:
+                    count += 1
+                else:
+                    count -= 1
 
-				if nums[i]==1:
-					count += 1
-				else:
-					count -= 1
+                if count not in d:
+                    d[count]=i
+                else:
+                    max_len=max(max_len,i-d[count])
 
-				if count not in d:
-					d[count]=i
-				else:
-					max_len=max(max_len,i-d[count])
-			return max_len
+            return max_len
 
 sol = Solution()
 print(sol.findMaxLength([0, 1, 0, 1]))
