@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution(object):
     def findTheDifference(self, s, t):
         """
@@ -5,15 +7,14 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
-        for i in t:
-            if s.count(i) != t.count(i):
-                return i
+
+        return list((Counter(t) - Counter(s)).keys())[0]
 
 
 sol = Solution()
 
-s = "a"
-t = "aa"
+s = "abcde"
+t = "abacde"
 
 
 print(sol.findTheDifference(s, t))
