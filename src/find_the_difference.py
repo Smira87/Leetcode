@@ -8,7 +8,8 @@ class Solution(object):
         :rtype: str
         """
 
-        return (Counter(t) - Counter(s)).popitem()[0]
+        return (Counter(t) - Counter(s)).most_common()[0][0]
+
 
 sol = Solution()
 
