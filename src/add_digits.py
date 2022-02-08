@@ -4,9 +4,7 @@ class Solution(object):
         :type num: int
         :rtype: int
         """
-        while num > 9:
-            num =  num % 10 + num // 10
-        return num
+        return 1 + (num - 1) % 9 if num else 0
 
 sol = Solution()
 
