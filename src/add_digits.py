@@ -4,9 +4,8 @@ class Solution(object):
         :type num: int
         :rtype: int
         """
-        while len(str(num)) > 1:
-            num = sum(int(i) for i in str(num))
-
+        while num > 9:
+            num =  num % 10 + num // 10
         return num
 
 sol = Solution()
