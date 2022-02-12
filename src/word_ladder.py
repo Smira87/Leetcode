@@ -4,6 +4,12 @@ from collections import deque
 
 class Solution(object):
     def ladderLength(self, beginWord, endWord, wordList):
+        """
+        :type beginWord: str
+        :type endWord: str
+        :type wordList: List[str]
+        :rtype: int
+        """
         if endWord not in wordList:
             return 0
 
@@ -36,3 +42,15 @@ class Solution(object):
             for i in range(len(wordList[0])):
                 wordHash[word[:i] + '*' + word[i + 1:]].append(word)
         return wordHash
+
+sol = Solution()
+
+beginWord = "hot"
+endWord = "dog"
+wordList = ["hot","cog","dog","tot","hog","hop","pot","dot"]
+
+#print(sol.ladderLength(beginWord, endWord, wordList))
+
+hashWord = sol.buildHash(wordList)
+
+print(sol.ladderLength(beginWord, endWord, wordList))
