@@ -27,10 +27,8 @@ class Solution(object):
             for i in range(len(popWord)):
                 key = popWord[:i] + '*' + popWord[i + 1:]
                 for nextWord in wordHash[key]:
-                    # End point
                     if nextWord == endWord:
                         return level + 1
-                        # Append next word in queue
                     if nextWord not in visited:
                         queue.append([nextWord, level + 1])
                 wordHash[key] = []
