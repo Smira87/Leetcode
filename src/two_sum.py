@@ -8,14 +8,15 @@ class Solution(object):
 
         my_map = {}
 
-        for i in nums:
-            if (target - i) in my_map:
-                return [my_map[target - i], nums.index(i)]
-            my_map[i] = nums.index(i)
+        for i in range(len(nums)):
+            if (target - nums[i]) in my_map:
+                return [my_map[target - nums[i]], i]
+            my_map[nums[i]] = i
+
 
 sol = Solution()
 
-nums =[2,7,11,15]
-target = 9
+nums = [3, 3]
+target = 6
 
 print(sol.twoSum(nums, target))
