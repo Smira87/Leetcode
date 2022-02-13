@@ -31,6 +31,7 @@ class Solution(object):
                         return level + 1
                     if nextWord not in visited:
                         queue.append([nextWord, level + 1])
+                        print(nextWord)
                 wordHash[key] = []
         return 0
 
