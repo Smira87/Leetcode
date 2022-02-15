@@ -1,20 +1,12 @@
-from collections import Counter
-
-class Solution(object):
+class Solution:
     def singleNumber(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        my_counter = Counter(nums)
-
-        for i in my_counter:
-            if my_counter[i] == 1:
-                return i
-
+        res = 0
+        for num in nums:
+            res ^= num
+        return res
 
 sol = Solution()
 
-nums = [1,2,1,2,7]
+nums = [3,1,2,1,2]
 
 print(sol.singleNumber(nums))
