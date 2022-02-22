@@ -4,14 +4,15 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        y = str(x)
+        rev = 0
+        n = x
 
-        if len(str(y)) <= 1:
-            return True
-        if y[-1:] == y[:1]:
-            return self.isPalindrome(y[1:-1])
+        while (n > 0):
+            a = n % 10
+            rev = rev * 10 + a
+            n = n // 10
 
-        return False
+        return rev == x
 
 
 sol = Solution()
