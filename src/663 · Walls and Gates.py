@@ -22,8 +22,9 @@ class Solution:
 
         for r in range(ROWS):
             for c in range(COLS):
-                q.append([r, c])
-                visit.add((r, c))
+                if rooms[r][c] == 0:
+                    q.append([r, c])
+                    visit.add((r, c))
 
         dist = 0
         while q:
