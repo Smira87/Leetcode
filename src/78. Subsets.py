@@ -6,6 +6,7 @@ class Solution:
 
         subset = []
         def dfs(i):
+
             if i >= len(nums):
                 res.append(subset.copy())
                 return
@@ -24,3 +25,4 @@ class Solution:
 sol = Solution()
 nums = [1,2,3]
 print(sol.subsets(nums))
+
